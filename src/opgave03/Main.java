@@ -12,6 +12,20 @@ public class Main {
     }
 
     private static int[] locateSmallest(double[][] input) {
-        return new int[]{0, 0};
+        int minRow = 0;
+        int minCol = 0;
+        double min = input[0][0]; // Første element starter som min
+
+        for (int row = 0; row < input.length; row++) {
+            for (int col = 0; col < input[row].length; col++) {
+                if (input[row][col] < min) {
+                    min = input[row][col]; // Update min
+                    minRow = row;          // Gem row index
+                    minCol = col;          // Gem column index
+                }
+            }
+        }
+
+        return new int[]{minRow, minCol};
     }
 }
